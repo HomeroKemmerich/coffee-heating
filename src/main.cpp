@@ -1,18 +1,19 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+int current_state = LOW;
+
+void change_state(int);
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  digitalWrite(LED_BUILTIN, current_state);
+  delay(1000);
+  current_state = !current_state;
 }
 
 // put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+void change_state(int port) {
 }
